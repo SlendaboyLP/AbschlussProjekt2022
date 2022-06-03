@@ -755,7 +755,7 @@ public final class Pokemon extends Computer {
             "Ribombee",
             "Rockruff",
             "Lycanroc",
-            "Wishiwashi",
+//            "Wishiwashi",
             "Mareanie",
             "Toxapex",
             "Mudbray",
