@@ -98,6 +98,7 @@ public final class GameFrame extends JFrame {
 
         NPC enemy = new NPC("Test_Enemy","Test",false);
 
+        removeComponents();
         choosePokemon(player);
         reloadFrame();
 
@@ -151,7 +152,7 @@ public final class GameFrame extends JFrame {
 
         String[] pokemons = Pokemon.allPokemon;
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 30; i++) {
             int randomNumb = rand.nextInt(0,pokemons.length-1);
             System.out.println("furt "+pokemons[randomNumb]);
             JSONObject pokemon = getJSONObject("https://pokeapi.co/api/v2/pokemon/" + (pokemons[randomNumb]).toLowerCase());
