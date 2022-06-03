@@ -5,9 +5,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.Random;
+
 import Computer.*;
-import netscape.javascript.JSObject;
+import Computer.JSON.getJSON;
+import org.json.simple.JSONObject;
+
+import static Computer.JSON.getJSON.getJSONObject;
 
 public final class GameFrame extends JFrame {
     static int width = 1280;
@@ -140,7 +146,19 @@ public final class GameFrame extends JFrame {
     }
 
     private void choosePokemon(Computer comp){
-        getJSON.getJSONObject("https://pokeapi.co/api/v2/pokemon/ditto");
+
+        Random rand = new Random();
+
+        String[] pokemons = Pokemon.allPokemon;
+
+        for (int i = 0; i < 10; i++) {
+            int randomNumb = rand.nextInt(0,pokemons.length-1);
+            System.out.println("furt "+pokemons[randomNumb]);
+            JSONObject pokemon = getJSONObject("https://pokeapi.co/api/v2/pokemon/" + (pokemons[randomNumb]).toLowerCase());
+            System.out.println(pokemon.get("name"));
+        }
+
+
 
     }
 

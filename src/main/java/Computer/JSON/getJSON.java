@@ -1,4 +1,4 @@
-package Computer;
+package Computer.JSON;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -42,7 +42,7 @@ public class getJSON {
         }
 
 
-        System.out.println(obj.get("name"));
+//        System.out.println(obj.get("name"));
 
         return obj;
 
