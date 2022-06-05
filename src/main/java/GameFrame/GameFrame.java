@@ -25,7 +25,7 @@ public final class GameFrame extends JFrame {
     ArrayList<Pokemon> pokeList = new ArrayList<>();
 
     public GameFrame() {
-        initPokemon();
+
         initGameFrame("Pokemon Game", width, height);
 
         showMainMenu();
@@ -34,7 +34,7 @@ public final class GameFrame extends JFrame {
     }
 
     private void initGameFrame(String title, int width, int height) {
-//        this.setIconImage(Toolkit.getDefaultToolkit().getImage("p3.jpg"));
+
         this.setIconImage(new ImageIcon(Objects.requireNonNull(getClass().getResource(""/*""p3.jpg"*/))).getImage());
         this.setTitle(title);
         this.setLayout(null);
@@ -99,14 +99,14 @@ public final class GameFrame extends JFrame {
         NPC enemy = new NPC("Test_Enemy","Test",false);
 
         removeComponents();
-        choosePokemon(player);
+        player.choosePokemon(contentPane);
         reloadFrame();
 
-        removeComponents();
-        choosePokemon(enemy);
-        reloadFrame();
-
-        initAttackPanel();
+//        removeComponents();
+//        enemy.choosePokemon(contentPane);
+//        reloadFrame();
+//
+//        initAttackPanel();
     }
 
     private void initAttackPanel() {
@@ -146,25 +146,9 @@ public final class GameFrame extends JFrame {
         frame.repaint();
     }
 
-    private void choosePokemon(Computer comp){
 
-        Random rand = new Random();
-
-        String[] pokemons = Pokemon.allPokemon;
-
-        for (int i = 0; i < 30; i++) {
-            int randomNumb = rand.nextInt(0,pokemons.length-1);
-            System.out.println("furt "+pokemons[randomNumb]);
-            JSONObject pokemon = getJSONObject("https://pokeapi.co/api/v2/pokemon/" + (pokemons[randomNumb]).toLowerCase());
-            System.out.println(pokemon.get("name"));
-        }
-
-
-
-    }
-
-    private void initPokemon(){
-        //TODO
-    }
+//    private void initPokemon(){
+//        //TODO
+//    }
 }
 

@@ -22,7 +22,10 @@ public class getJSON {
             connection.connect();
 
             if (connection.getResponseCode() != 200)
-                throw new RuntimeException("Responsecoded3: " + connection.getResponseCode());
+//                throw new RuntimeException("Responsecoded3: " + connection.getResponseCode());
+                return null; // will be changed, currently just for testing the pokemon  in the api
+
+
 
             StringBuilder infoString = new StringBuilder();
 
