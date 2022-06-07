@@ -2,8 +2,12 @@ package Computer;
 
 import org.json.simple.JSONObject;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Random;
 
 import static Computer.JSON.getJSON.getJSONObject;
@@ -22,7 +26,7 @@ public abstract class Computer {
         this.pokemon = pokemon;
     }
 
-    public void choosePokemon(Container contentpane){
+    public void choosePokemon(Container contentpane)  {
         Random rand = new Random();
 
         String[] pokemons = Pokemon.allPokemon;
@@ -30,7 +34,7 @@ public abstract class Computer {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 int randomNumb = rand.nextInt(0,pokemons.length-1);
-//                System.out.println("Requested: " + pokemons[randomNumb]);
+                System.out.println("Requested: " + pokemons[randomNumb]);
                 pokemon[i][j] = getJSONObject("https://pokeapi.co/api/v2/pokemon/" + (pokemons[randomNumb]).toLowerCase());
             }
         }
@@ -38,16 +42,25 @@ public abstract class Computer {
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-//                JButton pokebutton = new JButton("" + pokemon[i][j].get("name"));
 
-                JSONObject sprites = (JSONObject) pokemon[i][j].get("sprites");
-                System.out.println(sprites.get("front_default"));
+                try {
+//                    Button pokebutton = new JButton("" + pokemon[i][j].get("name"));
 
-                ImageIcon img = new ImageIcon("" + sprites.get("front_default"));
 
-                JButton pokebutton = new JButton(img);
-                pokebutton.setBounds((j+1) * 100 + 50, (i+1) * 100 + 50, 100,100);
-                contentpane.add(pokebutton);
+
+                    JSONObject sprites = (JSONObject) pokemon[i][j].get("sprites");
+                    URL url = new URL((String) sprites.get("front_default"));
+                    Image img = ImageIO.read(url);
+                    Icon icon = new ImageIcon(img);
+
+                    JButton pokebutton = new JButton();
+                    pokebutton.setIcon(icon);
+                    pokebutton.setBounds((j+1) * 150 + 175, (i+1) * 125 + 10, 100,100);
+                    contentpane.add(pokebutton);
+                } catch(IOException ie){
+                    ie.printStackTrace();
+                }
+//                J
             }
         }
 

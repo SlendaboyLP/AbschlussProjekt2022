@@ -719,7 +719,7 @@ public final class Pokemon extends Computer {
             "Klefki",
             "Phantump",
             "Trevenant",
-            "Pumpkaboo",
+//            "Pumpkaboo",
             "Gourgeist",
             "Bergmite",
             "Avalugg",
@@ -874,7 +874,7 @@ public final class Pokemon extends Computer {
             "Obstagoon",
             "Perrserker",
             "Cursola",
-            "Sirfetch'd",
+//            "Sirfetch'd",
 //            "Mr. Rime",
             "Runerigus",
             "Milcery",
@@ -911,11 +911,11 @@ public final class Pokemon extends Computer {
             "Wyrdeer",
             "Kleavor",
 //            "Ursaluna",
-            "Basculegion",
+//            "Basculegion",
             "Sneasler",
             "Overqwil",
             "Enamorus"
-};
+    };
 
 
     public Pokemon(String name, String gender, String[] type, int health, int attack, int specialAttack, int defence, int specialDefence, int initiative) {
